@@ -20,7 +20,7 @@ public:
             other.m_count = nullptr;
         }
 
-    ~shard_ptr() {
+    ~shared_ptr() {
         if (!count) {
             return;
         }
@@ -30,7 +30,6 @@ public:
             delete m_count;
         }
     }
-
 
 private:
     T * m_ptr{nullptr};
