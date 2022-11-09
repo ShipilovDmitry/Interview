@@ -10,6 +10,10 @@ public:
     shared_ptr(shared_ptr const & other) noexcept
         : m_ptr(other.m_ptr)
         , m_count(other.m_count) {
+            if (m_count == nullptr) {
+                return;
+            }
+
             ++*m_count;
         }
     
@@ -25,7 +29,7 @@ public:
     }
 
     ~shared_ptr() {
-        if (!count) {
+        if (!m_count) {
             return;
         }
 
