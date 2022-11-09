@@ -7,18 +7,22 @@ public:
         : m_ptr(ptr)
         , m_count(new size_t(1)) {}
 
-    shared_ptr(T const & other) noexcept
+    shared_ptr(shared_ptr const & other) noexcept
         : m_ptr(other.m_ptr)
         , m_count(other.m_count) {
             ++*m_count;
         }
     
-    shared_ptr(T && other) noexcept
+    shared_ptr(shared_ptr && other) noexcept
         : m_ptr(other.m_ptr)
         , m_count(other.m_count) {
             other.m_ptr = nullptr;
             other.m_count = nullptr;
         }
+
+     T const & operator*() const {
+        return *m_ptr;
+    }
 
     ~shared_ptr() {
         if (!count) {
@@ -36,3 +40,4 @@ private:
     size_t * m_count{nullptr};
 };
 }
+
