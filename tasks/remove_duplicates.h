@@ -9,7 +9,7 @@ void findDistinctive(vector<int>& array) {
 
 
 // На вход поступает набор случайных чисел.
-// Необходимо найти уникальные элементы без дублирований
+// Необходимо найти и вернуть уникальные элементы без дублирований.
 std::vector<int> findDistinctive(vector<int> const & array) {
     std::vector<int> res;
     res.reserve(vec.size());
@@ -24,3 +24,15 @@ std::vector<int> findDistinctive(vector<int> const & array) {
     
     return res;
 }
+
+// C++ ----------------
+#include <iostream>
+
+// На вход поступает набор случайных чисел.
+// Необходимо найти и вернуть уникальные элементы без дублирований.
+
+int main() {
+    std::cout << "Hello, world!" << std::endl;
+    return 0;
+}
+

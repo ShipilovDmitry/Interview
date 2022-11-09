@@ -1,5 +1,7 @@
-// carcass
-namespace ptr {
+// C++ ----------------
+#include <iostream>
+
+// Реализовать упрощённую версию std::shared_ptr.
 
 class shared_ptr {
 public:
@@ -14,10 +16,24 @@ public:
 
     }
 
-    // method for getting value from pointer
+    // method for getting value from the pointer
 
     ~shared_ptr(/*?*/) {
 
     }
 };
+
+void testCopy() {
+
 }
+
+void testMove() {
+
+}
+
+
+int main() {
+    std::cout << "Hello, world!" << std::endl;
+    return 0;
+}
+
