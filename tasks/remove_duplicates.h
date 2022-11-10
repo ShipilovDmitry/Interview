@@ -30,6 +30,7 @@ std::vector<int> findDistinctive(vector<int> const & array) {
 
 // На вход поступает набор случайных чисел.
 // Необходимо найти и вернуть уникальные элементы без дублирований.
+// Исходный порядок элементов важен.
 
 int main() {
     std::cout << "Hello, world!" << std::endl;
