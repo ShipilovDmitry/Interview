@@ -74,6 +74,30 @@ void reverseWordsOrder(char *buffer) {
     }
 }
 
+void reverseBuffer(std::string &buffer, size_t fromIndex, size_t toIndex) {
+    for (size_t index = 0; fromIndex + index < (fromIndex + toIndex) / 2; ++index) {
+        std::swap(buffer[fromIndex + index], buffer[toIndex - 1 - index]);
+    }
+}
+
+void reverseWordsOrder(std::string &buffer) {
+    if (buffer.empty()) {
+        return;
+    }
+
+    reverseBuffer(buffer, 0, buffer.size());
+    size_t begin = 0;
+    while (begin < buffer.size()) {
+        size_t end = buffer.find(' ', begin);
+        if (end == std::string::npos) {
+            end = buffer.size();
+        }
+
+        reverseBuffer(buffer, begin, end);
+        begin = ++end;
+    }
+}
+
 void testReorder() {
     char *str = new char[15];
     str[0] = 'd';
@@ -92,8 +116,16 @@ void testReorder() {
     str[13] = '+';
     str[14] = '\0';
 
-    std::cout << str << std::endl;
-    reverseWordsOrder(str);
-    std::cout << str << std::endl;
+
+    std::string buffer{"dima loves c++"};
+//    reverseBuffer(buffer, 0, buffer.size());
+//    std::cout << buffer;
+
+    reverseWordsOrder(buffer);
+    std::cout << buffer;
+
+//    std::cout << str << std::endl;
+//    reverseWordsOrder(str);
+//    std::cout << str << std::endl;
     delete[] str;
 }
